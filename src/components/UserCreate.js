@@ -70,7 +70,8 @@ class UserCreate extends Component {
           ></input>
           {/* Here I need to navigate to Login page also wanted to call handleSubmit on click of  button */}
           <button id="button" type="submit">
-            <Link to={"/LoginUser"}>Submit</Link>
+            {/* <Link to={"/LoginUser"}>Submit</Link> */}
+            Submit
           </button>
         </form>
         <Link to={"/"}>Back</Link>

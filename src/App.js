@@ -6,6 +6,7 @@ import FilteredData from "./components/FilteredData";
 import Home from "./components/Home";
 import { Routes, Route, Link, BrowserRouter } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
+import Test from "./components/Test";
 function App() {
   return (
     <div className="App">
@@ -17,6 +18,7 @@ function App() {
           <Route element={<UserLogin />} path="/loginUser">
             <Route to="/dashboard" element={<Dashboard />} />
           </Route>
+          <Route element={<Test />} path="/test" />
         </Routes>
 
         {/* </Switch> */}
