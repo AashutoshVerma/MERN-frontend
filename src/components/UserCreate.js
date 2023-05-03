@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import UserLogin from "./UserLogin";
 
 class UserCreate extends Component {
   constructor() {
@@ -9,6 +10,7 @@ class UserCreate extends Component {
       username: "",
       email: "",
       password: "",
+      userCreated: false,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -35,10 +37,13 @@ class UserCreate extends Component {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        this.userCreated = true;
       });
   }
   render() {
-    return (
+    return this.userCreated ? (
+      <UserLogin />
+    ) : (
       <div className="loginContainer">
         <h1 className="formHeading"> Create New User</h1>
         <form onSubmit={this.handleSubmit}>
@@ -63,8 +68,9 @@ class UserCreate extends Component {
               this.setState({ password: event.target.value });
             }}
           ></input>
+          {/* Here I need to navigate to Login page also wanted to call handleSubmit on click of  button */}
           <button id="button" type="submit">
-            Submit
+            <Link to={"/LoginUser"}>Submit</Link>
           </button>
         </form>
         <Link to={"/"}>Back</Link>

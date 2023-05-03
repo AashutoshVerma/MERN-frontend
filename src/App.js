@@ -5,7 +5,7 @@ import UserLogin from "./components/UserLogin";
 import FilteredData from "./components/FilteredData";
 import Home from "./components/Home";
 import { Routes, Route, Link, BrowserRouter } from "react-router-dom";
-
+import Dashboard from "./components/Dashboard";
 function App() {
   return (
     <div className="App">
@@ -13,8 +13,10 @@ function App() {
         {/* <Switch> */}
         <Routes>
           <Route exact element={<Home />} path="/" />
-          <Route exact element={<UserCreate />} path="/createUser" />
-          <Route exact element={<UserLogin />} path="/loginUser" />
+          <Route element={<UserCreate />} path="/createUser" />
+          <Route element={<UserLogin />} path="/loginUser">
+            <Route to="/dashboard" element={<Dashboard />} />
+          </Route>
         </Routes>
 
         {/* </Switch> */}

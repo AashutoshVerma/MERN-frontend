@@ -1,6 +1,13 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-
+import {
+  Link,
+  Redirect,
+  Routes,
+  Route,
+  useHistory,
+  Outlet,
+} from "react-router-dom";
+import Dashboard from "./Dashboard";
 class UserLogin extends Component {
   constructor() {
     super();
@@ -49,11 +56,13 @@ class UserLogin extends Component {
     // console.log(localStorage.getItem("check"));
   }
   render() {
+    // <Routes>
+    //   <Route to={"/dashboard"} element={<Dashboard />} />;
+    // </Routes>;
+
     return this.state.loginSuccessful ? (
       <div>
-        <h1>Login Successful</h1>
-        <h2>Username : {this.state.username}</h2>
-        <h2>Email : {this.state.email}</h2>
+        <Dashboard />
       </div>
     ) : (
       <div className="loginContainer">
