@@ -85,3 +85,32 @@
   color: white;
   padding: 0.4rem 1rem;
 }
+
+.dashboardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.logoutButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #61dafb;
+  border: 2px solid #61dafb;
+  width: fit-content;
+  margin: 10px auto;
+  padding: 0.4rem 1rem;
+  border-radius: 10px;
+}
+
+.backButton {
+  border: 2px solid #61dafb;
+  margin: 10px auto;
+  text-decoration: none;
+  color: #61dafb;
+  padding: 0.4rem 1rem;
+  border-radius: 10px;
+}
