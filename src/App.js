@@ -7,6 +7,7 @@ import Home from "./components/Home";
 import { Routes, Route, Link, BrowserRouter } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
 import Test from "./components/Test";
+import { ToastContainer } from "react-toastify";
 function App() {
   return (
     <div className="App">
@@ -26,7 +27,7 @@ function App() {
         {/* <UserCreate /> */}
         {/* <UserLogin /> */}
         {/* <FilteredData /> */}
-        <img src={logo} className="App-logo" alt="logo" />
+        {/* <img src={logo} className="App-logo" alt="logo" /> */}
       </header>
     </div>
   );
