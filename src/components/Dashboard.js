@@ -1,24 +1,23 @@
-import axios from "axios";
+//importing modules
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+// main component
 function Test() {
   const [userData, setUserData] = useState([]);
+
+  //UseEffect is used to load data only once, from the API.
   useEffect(() => {
-    fetch("https://mern-backend-ltn6bgxgm-aashutoshverma.vercel.app/getAllUser")
-      .then((response) => response.json())
+    fetch("https://mern-backend-ltn6bgxgm-aashutoshverma.vercel.app/getAllUser") // API to fetch the data
+      .then((response) => response.json()) //API promise.
       .then((data) => {
-        setUserData(data.data);
-        console.log(data);
+        setUserData(data.data); //Setting data using setData function.
+        // console.log(data);
       })
-      .catch((error) => console.error(error));
+      .catch((error) => console.error(error)); //error handling
   }, []);
   return (
-    // <div>
-    //   {userData.map((item) => {
-    //     return <div key={item._id}>{item.username}</div>;
-    //   })}
-    // </div>
+    // Displaying Fetched Data.
     <div>
       <div className="dashboardHeader">
         <h1>User Data</h1>
@@ -34,6 +33,7 @@ function Test() {
           </tr>
         </thead>
         <tbody>
+          {/* mapping Data in order of keys */}
           {userData.map((item) => (
             <tr key={item._id}>
               <td>{item.username}</td>

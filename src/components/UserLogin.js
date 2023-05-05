@@ -1,38 +1,42 @@
+//importing modules
 import React, { Component } from "react";
-import {
-  Link,
-  Redirect,
-  Routes,
-  Route,
-  useHistory,
-  Outlet,
-} from "react-router-dom";
+import { Link } from "react-router-dom";
+
+//importing Dashboard
 import Dashboard from "./Dashboard";
+
+//importing Toast and its predefined CSS
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
+//Creating main Class Component
 class UserLogin extends Component {
   constructor() {
     super();
 
+    //defining State
     this.state = {
-      // isLoggedin: false,
       email: "",
       password: "",
       loginSuccessful: false,
     };
 
-    // localStorage.setItem("check", this.state.isLoggedin);
-
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this); //binding handleSubmit function
   }
 
+  // this function will be called when the submit button is clicked.
   handleSubmit(e) {
-    e.preventDefault();
+    e.preventDefault(); //this avoid instant refreshing page.
+
+    // desctructuring states created earlier.
     const { email, password } = this.state;
-    // alert(`${email} ${password}`);
+
+    //fetching the API and sending the data for creation of user to the backend.
+
     fetch(
       "https://mern-backend-ltn6bgxgm-aashutoshverma.vercel.app/UserLogin",
       {
+        //defining headers for the request.
         method: "POST",
         crossDomain: true,
         headers: {
@@ -40,20 +44,26 @@ class UserLogin extends Component {
           Accept: "application/json",
           "Access-Control-Allow-Origin": "*",
         },
+
+        //defining Body for the request.
+
         body: JSON.stringify({
           email,
           password,
         }),
       }
     )
-      .then((res) => res.json())
+      .then((res) => res.json()) // Promise of API
       .then((data) => {
-        console.log(data);
-        toast.error(data.error);
+        toast.error(data.error); //Display  erros msg 'User Exists'.
+
+        //checking if data received from the API successfully, through status
         if (data.status === "ok") {
           console.log("login Successful");
 
-          toast.success("Login Success!!", { autoClose: 3000 });
+          toast.success("Login Success!!", { autoClose: 3000 }); //acknowledgement of successfully login
+
+          //this function lets the toast load and make it visible for the user to see. after 3 second it changes the userCreated State.
           setTimeout(() => {
             this.setState({
               loginSuccessful: true,
@@ -63,18 +73,18 @@ class UserLogin extends Component {
           }, 3000);
         }
       });
-    // console.log(localStorage.getItem("check"));
   }
+
+  //rendering Component
   render() {
-    // <Routes>
-    //   <Route to={"/dashboard"} element={<Dashboard />} />;
-    // </Routes>;
+    //here we check if the user visits this component for the first time, it will reflect UserLogin component, after submitting, loginSuccessful state will become true and the user will be redirected to Dashboard Component.
 
     return this.state.loginSuccessful ? (
       <div>
         <Dashboard />
       </div>
     ) : (
+      //Input Elements for login Component
       <div className="loginContainer">
         <h1 className="formHeading">User Login</h1>
         <form onSubmit={this.handleSubmit}>
@@ -97,15 +107,19 @@ class UserLogin extends Component {
               this.setState({ password: event.target.value });
             }}
           ></input>
+          {/* Final Login Button */}
           <button id="button" type="submit">
             Submit
           </button>
           <h1>{this.state.loginSuccessful}</h1>
         </form>
         <br />
+
+        {/* Back button to navigate Back to Home Component */}
         <Link className="backButton" to={"/"}>
           Back
         </Link>
+        {/* Toast Wrapper component */}
         <ToastContainer limit={1} />
       </div>
     );
