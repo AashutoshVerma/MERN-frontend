@@ -6,15 +6,15 @@ This project was built with ReactJS and serves as the user interface for our ful
 
 To get started with the frontend, you can clone this repository to your local machine by running:
 
-### git clone https://github.com/your-username/your-repo.git
+### `git clone https://github.com/your-username/your-repo.git`
 
 Once you have cloned the repository, navigate to the project directory and install the necessary dependencies by running:
 
-### npm install
+### `npm install`
 
 To run the frontend, use the command:
 
-### npm start
+### `npm start`
 
 This will start the development server and you can view the application on your local machine at http://localhost:3000.
 
