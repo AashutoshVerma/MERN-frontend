@@ -106,18 +106,20 @@ class UserCreate extends Component {
               this.setState({ password: event.target.value });
             }}
           ></input>
-          {/* //final submitting button */}
-          <button id="button" type="submit">
-            Submit
-          </button>
+          <div className="createUserFooter">
+            {/* //final submitting button */}
+            <button id="button" type="submit">
+              Submit
+            </button>
+            <br />
+            {/* Button for navigating Back to home Component.  */}
+            <Link className="backButton" to={"/"}>
+              Back
+            </Link>
+            {/* Toast Wrapper Function */}
+            <ToastContainer position="top-right" limit={1} />
+          </div>
         </form>
-        <br />
-        {/* Button for navigating Back to home Component.  */}
-        <Link className="backButton" to={"/"}>
-          Back
-        </Link>
-        {/* Toast Wrapper Function */}
-        <ToastContainer position="top-right" limit={1} />
       </div>
     );
   }

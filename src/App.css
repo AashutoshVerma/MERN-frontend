@@ -2,17 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -63,13 +52,18 @@
   color: cyan;
 }
 
+.loginContainer form input:-webkit-autofill,
+input:-moz-autofill {
+  box-shadow: 0 0 0 30px white inset !important;
+  border: 1px solid green !important;
+}
+
 .loginContainer form button {
-  width: 300px;
-  font-size: 40px;
-  border-radius: 15px;
+  font-size: 27px;
+  padding: 0.5rem 0.5rem;
+  border-radius: 10px;
   background-color: #282c34;
   border: 2px ridge cyan;
-  margin-top: 25px;
   color: cyan;
 }
 
@@ -91,6 +85,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: row;
+  color: #61dafb;
 }
 
 .logoutButton {
@@ -113,4 +108,61 @@
   color: #61dafb;
   padding: 0.4rem 1rem;
   border-radius: 10px;
+}
+
+.loginFooter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
+
+  align-items: center;
+}
+
+.createUserFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+@media only screen and (max-width: 768px) {
+  .homePageHeading {
+    color: #61dafb;
+    font-size: 20px;
+  }
+
+  .homePageText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  #links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  #links a {
+    margin-top: 20px;
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+  }
+
+  .loginContainer {
+    width: 70%;
+  }
+
+  .loginContainer form input {
+    font-size: 1.2rem;
+  }
+  .loginContainer form button {
+    width: auto;
+    font-size: 1.2rem;
+    padding: 0.3rem;
+  }
 }

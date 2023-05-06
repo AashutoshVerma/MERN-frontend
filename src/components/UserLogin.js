@@ -8,6 +8,7 @@ import Dashboard from "./Dashboard";
 //importing Toast and its predefined CSS
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "../App.css";
 
 //Creating main Class Component
 class UserLogin extends Component {
@@ -108,19 +109,18 @@ class UserLogin extends Component {
             }}
           ></input>
           {/* Final Login Button */}
-          <button id="button" type="submit">
-            Submit
-          </button>
-          <h1>{this.state.loginSuccessful}</h1>
+          <div className="loginFooter">
+            <button id="loginButton" type="submit">
+              Submit
+            </button>
+            {/* Back button to navigate Back to Home Component */}
+            <Link className="backButton" to={"/"}>
+              Back
+            </Link>
+            {/* Toast Wrapper component */}
+            <ToastContainer limit={1} />
+          </div>
         </form>
-        <br />
-
-        {/* Back button to navigate Back to Home Component */}
-        <Link className="backButton" to={"/"}>
-          Back
-        </Link>
-        {/* Toast Wrapper component */}
-        <ToastContainer limit={1} />
       </div>
     );
   }
